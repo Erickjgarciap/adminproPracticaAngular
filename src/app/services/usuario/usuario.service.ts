@@ -11,9 +11,20 @@ export class UsuarioService {
   constructor(public http: HttpClient) {
     console.log("servicio listo");
    }
-  login(usuario: Usuario, recuerdame: boolean = false) {
+  login(usuario: Usuario, recordar: boolean = false) {
+
+    if ( recordar ) {
+      localStorage.setItem('email', usuario.email);
+    } else {
+      localStorage.removeItem('email');
+    }
   let url_login = URL_SERVICIOS + '/login';
-  return this.http.post(url_login, usuario);
+  return this.http.post(url_login, usuario).map((resp: any) => {
+    localStorage.setItem('id', resp.id);
+    localStorage.setItem('token', resp.token);
+    localStorage.setItem('usuario', JSON.stringify(resp.usuario));
+    return true;
+  });
   }
 
 

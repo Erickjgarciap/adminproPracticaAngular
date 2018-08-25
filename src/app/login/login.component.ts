@@ -11,29 +11,32 @@ declare function init_plugins();
 })
 export class LoginComponent implements OnInit {
   recuerdame: boolean = false;
+  email: string;
   constructor(public router: Router,
-              public usuario: UsuarioService) { }
+              public _usuarioservice: UsuarioService) { }
 
   ngOnInit() {
     init_plugins();
-
+    this.email = localStorage.getItem('email')  || '';
+    if (this.email.length > 0) {
+      this.recuerdame = true;
+    }
   }
 
   ingresar(forma: NgForm) {
-  // this.router.navigate(['/dashboard']);
-  // console.log("valida ", forma.valid);
-  // console.log("value ", forma.value);
+
   if ( forma.invalid) {
       return;
   }
-  let usuario =  new Usuario(
-    null,
+  let usuario_nuevo =  new Usuario(
+      null,
     forma.value.email,
     forma.value.password
   );
-  this.usuario.login(usuario, forma.value.recuerdame)
-              .subscribe(resp => {
-                console.log("la resp ", resp);
-              });
+  console.log("usuario ", usuario_nuevo);
+
+  this._usuarioservice.login(usuario_nuevo, forma.value.recuerdame)
+              .subscribe(correcto => this.router.navigate(['/dashboard']) );
+
   }
 }
