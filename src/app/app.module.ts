@@ -16,6 +16,7 @@ import { IncrementadorComponent } from './components/incrementador/incrementador
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { SettingsService } from './services/service.index';
 import { ServiceModule } from './services/service.module';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ServiceModule } from './services/service.module';
     LoginComponent,
     RegisterComponent // ,
     // IncrementadorComponent
+    ,
   ],
   imports: [
     BrowserModule,
@@ -30,9 +32,12 @@ import { ServiceModule } from './services/service.module';
     PageModule,
     FormsModule,
     ReactiveFormsModule,
-    ServiceModule
+    ServiceModule,
+    // AngularFireAuth
   ],
-  providers: [],
+  providers: [
+    AngularFireAuth
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
