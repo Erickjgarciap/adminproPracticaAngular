@@ -45,10 +45,7 @@ export class LoginComponent implements OnInit {
   this.auth2.attachClickHandler(element, {}, googleUser => {
     // let profile = googleUser.getBasicProfile();
     let token = googleUser.getAuthResponse().id_token;
-    this._usuarioservice.logingoogle(token).subscribe(() => {
-   // console.log(resp);
-   this.router.navigate(['/dashboard']);
-    });
+    this._usuarioservice.logingoogle(token).subscribe(() =>  window.location.href = '#/dashboard');
    // console.log("token ", token);
   } );
   }
@@ -70,7 +67,7 @@ export class LoginComponent implements OnInit {
   }
   login() {
     this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider()).then((e: any) => {
-      // console.log("ee ", e.credential.accessToken);
+       console.log("ee ", e);
       this._usuarioservice.loginface(e.credential.accessToken).subscribe(() =>  window.location.href = '#/dashboard');
 
     });

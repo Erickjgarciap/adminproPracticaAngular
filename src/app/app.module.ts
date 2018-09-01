@@ -17,12 +17,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { SettingsService } from './services/service.index';
 import { ServiceModule } from './services/service.module';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { ImagenPipe } from './pipes/imagen.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent // ,
+    RegisterComponent
     // IncrementadorComponent
     ,
   ],
