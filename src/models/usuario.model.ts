@@ -6,6 +6,7 @@ export class Usuario {
         public img?: string,
         public role?: string,
         public google?: boolean,
+        public face?: boolean,
         public _id?: string
     ) {
 
