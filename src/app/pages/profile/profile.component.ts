@@ -10,6 +10,7 @@ import { NgForm } from '@angular/forms';
 })
 export class ProfileComponent implements OnInit {
   usuario: Usuario;
+  imagenSubir: File;
   constructor(public _usuarioservice: UsuarioService) {
     this.usuario = this._usuarioservice.usuario;
    }
@@ -22,6 +23,16 @@ export class ProfileComponent implements OnInit {
       this.usuario.email = usuario.email;
     }
     this._usuarioservice.actualizar(this.usuario).subscribe();
+  }
+  seleccionImagen(archivo: File) {
+    if (!archivo) {
+        this.imagenSubir = null;
+        return;
+    }
+      this.imagenSubir = archivo;
+  }
+  cambiarImagen() {
+    this._usuarioservice.cambiarImagen(this.imagenSubir, this.usuario._id);
   }
 
 }

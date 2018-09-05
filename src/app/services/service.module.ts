@@ -10,7 +10,8 @@ import {
   SidebarService,
   SettingsService,
   UsuarioService,
-  LoginGuardGuard
+  LoginGuardGuard,
+  SubirArchivoService
 } from './service.index';
 
 export const  config = {
@@ -35,7 +36,8 @@ export const  config = {
     SharedService,
     SidebarService,
     UsuarioService,
-    LoginGuardGuard
+    LoginGuardGuard,
+    SubirArchivoService
   ]
 })
 export class ServiceModule { }
