@@ -17,6 +17,7 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 // pipes
 import { PipesModule } from '../pipes/pipes.module';
 import { ProfileComponent } from './profile/profile.component';
+import { CommonModule } from '@angular/common';
 @NgModule({
 declarations: [
    DashboardComponent,
@@ -37,6 +38,7 @@ exports: [
     PagesComponent
 ],
 imports: [
+    CommonModule,
     SharedModule,
     pages_routes,
     FormsModule,
