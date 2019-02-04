@@ -15,7 +15,6 @@ export class UsuarioService {
               public _router: Router,
               public _subirArchivoservice: SubirArchivoService) {
 
-    console.log("servicio listo");
     if (localStorage.getItem('token')) {
       this.token = localStorage.getItem('token');
       this.usuario = JSON.parse( localStorage.getItem('usuario'));
@@ -80,7 +79,6 @@ export class UsuarioService {
   });
   }
 
-
   crearUsuario(usuario: Usuario) {
    let url_usuario = URL_SERVICIOS + '/usuarios';
   return  this.http.post(url_usuario, usuario)
@@ -101,12 +99,16 @@ export class UsuarioService {
   }
   cambiarImagen(file: File, id: string ) {
     this._subirArchivoservice.subirArchivo(file, 'usuarios', id ).then((resp: any) => {
-      console.log("ok", resp);
+      // console.log("ok", resp);
       this.usuario.img = resp.usuario.img;
       swal('Imagen actualizada', this.usuario.nombre, 'success');
       this.guardarStorage(id, this.token, this.usuario);
     }).catch(resp => {
-      console.log("error ", resp);
+      // console.log("error ", resp);
     });
+  }
+  cargarUsuarios(desde: number = 0) {
+    let url_cargarUsuarios = URL_SERVICIOS + '/usuarios?desde=' + desde;
+    return this.http.get(url_cargarUsuarios);
   }
 }
