@@ -13,6 +13,7 @@ import {
   LoginGuardGuard,
   SubirArchivoService
 } from './service.index';
+import { ModalUploadService } from '../components/modal-upload/modal-upload.service';
 
 export const  config = {
   apiKey: "AIzaSyA0bYNeysCFKObhl_yue_fekr2IOeiuml4",
@@ -37,7 +38,8 @@ export const  config = {
     SidebarService,
     UsuarioService,
     LoginGuardGuard,
-    SubirArchivoService
+    SubirArchivoService,
+    ModalUploadService
   ]
 })
 export class ServiceModule { }

@@ -19,6 +19,7 @@ import { ServiceModule } from './services/service.module';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ImagenPipe } from './pipes/imagen.pipe';
 
+
 @NgModule({
   declarations: [
     AppComponent,
