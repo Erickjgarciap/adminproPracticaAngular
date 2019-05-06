@@ -61,7 +61,6 @@ imagenTemp: string;
     this.imagenTemp = null;
     this.imagenSubir = null;
     this._modalUploadService.ocultarModal();
-    
 console.log( "algo aqui " + this.imagenTemp + "aaaa " + this.imagenSubir);
 
   }
