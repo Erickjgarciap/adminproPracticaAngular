@@ -1,5 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
-
+declare var jquery: any;
+declare var $: any;
 @Injectable()
 export class ModalUploadService {
 
@@ -17,6 +18,8 @@ export class ModalUploadService {
   this.oculto = 'oculto';
   this.id = null;
   this.tipo = null;
+  $('.modal-body').find('textarea,input').val('');
+
   }
   mostrarModal(tipo: string, id: string) {
     this.oculto = '';

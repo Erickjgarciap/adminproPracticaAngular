@@ -7,6 +7,7 @@ declare var swal: any;
 swal = _swal;
 /* Fin de la solucion */
 
+
 @Component({
   selector: 'app-modal-upload',
   templateUrl: './modal-upload.component.html',
@@ -32,7 +33,6 @@ imagenTemp: string;
        console.log( 'Probando respuesta si funciona el llamado a modalUploadService ' + resp);
             this._modalUploadService.notificacion.emit( resp );
             this.cerrarModal();
-          /*
             swal({
               title: 'Exito',
               text: 'La imagen se ha subido correctamente',
@@ -40,9 +40,9 @@ imagenTemp: string;
               buttons: false,
               timer: 2700
             });
-*/
+
      }).catch(err => {
-       /*
+
           console.log("error al subir archivo " + err);
           this._modalUploadService.ocultarModal();
           this.cerrarModal();
@@ -54,15 +54,12 @@ imagenTemp: string;
             timer: 2700,
             dangerMode: true,
           });
-          */
      });
   }
   cerrarModal() {
     this.imagenTemp = null;
     this.imagenSubir = null;
     this._modalUploadService.ocultarModal();
-console.log( "algo aqui " + this.imagenTemp + "aaaa " + this.imagenSubir);
-
   }
 
   seleccionImagen(archivo: File) {
