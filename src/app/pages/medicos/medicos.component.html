@@ -1,0 +1,49 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class=card>
+            <div class="card-body">
+                <input #input (keyup)="buscarMedicos(input.value)" class="form-control" placeholder="Buscar Medico">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <button type="button" (click)="crearMedico()" class="btn btn-primary izq">
+                  <i class="fa fa-plus"></i>
+                    crear Médico
+                </button>
+            </div>
+            <h3 class="card-title">Médicos Registrados(<small>{{_medicoService.totalmedicos}}</small>)</h3>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Nombre</th>
+                        <th>Hospital Asignado</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let medico of listamedicos">
+                        <td>
+                            <img [src]="medico.img | imagen:'medico'" class="img-50 img-circle pointer">
+                        </td>
+                        <td>{{ medico.nombre }}</td>
+                        <td>{{ medico.hospital.nombre }}</td>
+                        <td>
+                            <button class="btn btn-primary">
+                                        <i class="fa fa-edit"></i>
+                                    </button>
+                            <button class="btn btn-danger">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -6,3 +6,6 @@ export { SharedService } from "./shared/shared.service";
 export { SubirArchivoService } from './subir-archivos/subir-archivo.service';
 export { HospitalesService } from './hospital/hospitales.service';
 
+ export { MedicoService } from './medico/medico.service';
+
+

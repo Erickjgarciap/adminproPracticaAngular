@@ -12,7 +12,8 @@ import {
   UsuarioService,
   LoginGuardGuard,
   SubirArchivoService,
-  HospitalesService
+  HospitalesService,
+  MedicoService
 } from './service.index';
 import { ModalUploadService } from '../components/modal-upload/modal-upload.service';
 
@@ -41,7 +42,8 @@ export const  config = {
     LoginGuardGuard,
     SubirArchivoService,
     ModalUploadService,
-    HospitalesService
+    HospitalesService,
+    MedicoService
   ]
 })
 export class ServiceModule { }
